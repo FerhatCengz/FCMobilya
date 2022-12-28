@@ -1,0 +1,255 @@
+.menu a {
+  font-size: 17px;
+  margin: 10px;
+}
+
+.resimslayt img {
+  width: 100%;
+}
+.altmenu img {
+  margin-bottom: 10px;
+  margin: 40;
+}
+
+.altmenu h6 {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.reklamlar {
+  margin-top: 160px;
+}
+
+.kurulum img {
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.yeniurun h2 {
+  margin-top: 60px !important;
+}
+
+.yeniurun img {
+  margin-top: 90px;
+}
+
+.hakkimizda {
+  background-color: #121212bb;
+  color: white;
+  padding: 90px !important;
+  margin-top: 120px;
+}
+
+.cizgi {
+  width: 60px;
+  height: 2px;
+  background-color: #3c94ce;
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+.hakkimizda input {
+  background-color: #121212;
+  height: 48px;
+  color: white;
+  border: none;
+  width: 100%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.hakkimizda input:focus {
+  background-color: #121212;
+  height: 48px;
+  color: white;
+  border-radius: 0;
+  border: none;
+}
+
+.hakkimizda textarea {
+  background-color: #121212;
+  color: white;
+  width: 100%;
+  border: none;
+}
+
+.hakkimizda button {
+  border-radius: 20px;
+  background-color: #05c46b;
+}
+
+/* Yemek Odasi */
+
+.kapsayici .col-md-6 {
+  margin-top: 150px;
+}
+.kapsayici .card:hover {
+  background-color: rgba(80, 131, 84, 0.443);
+  color: white;
+  font-weight: bolder;
+  transition: 0.7s;
+}
+.kapsayici .btn-danger {
+  display: none;
+}
+
+/* Sepet ve sayaç */
+.sepet i {
+  font-size: 50;
+  color: rgb(197, 28, 28);
+  display: none;
+}
+.sepet a {
+  color: white;
+  text-decoration: none;
+}
+
+.sepet input {
+  position: fixed;
+  background-color: red;
+  width: 35px;
+  border-radius: 12px;
+  color: white;
+  font-size: 13px;
+  text-align: center;
+  margin-top: -50px;
+  display: none;
+}
+
+/* Sepet */
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-image: url(ResimSlayt/deneme2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.harici {
+  background-image: none;
+  background-color: white;
+}
+
+.kapsayici-form {
+  position: relative;
+  left: 50%;
+  top: 2%;
+  transform: translateX(-50%);
+  font-weight: bold;
+}
+.kapsayici-form input {
+  width: 700px;
+}
+.group-renk {
+  background-color: #dc9248;
+  color: rgba(255, 255, 255, 0.674);
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Bad+Script&display=swap");
+
+/* Tabloyu yeniden yapılandır */
+
+.tablom {
+  margin-left: 10%;
+  margin-top: 180px;
+  width: 50%;
+  transform: translateX(-10%);
+  background-color: rgba(255, 255, 255, 0.477);
+}
+
+.tablom .urunveri img {
+  padding: 0px;
+}
+
+.tablom .urunveri p {
+  padding: 30px;
+  text-align: center;
+}
+
+.tablom .urunveri button {
+  text-align: center;
+}
+.tablom .tdtr {
+  text-align: center;
+  width: 200px;
+  padding-top: 10px;
+}
+.tablom .eksi {
+  font-size: 18px;
+  padding: 10;
+}
+.tablom .arti {
+  font-size: 18px;
+  padding: 10;
+}
+
+.siparistablo h1 {
+  font-family: "Bad Script", cursive;
+  text-align: center;
+}
+.card-body h1,
+h6,
+span {
+  text-align: center;
+  line-height: 50px;
+}
+.siparistablo {
+  margin: auto;
+  margin-top: 80px;
+  margin-left: auto;
+}
+
+.siparistablo .card {
+  background-color: rgba(0, 0, 0, 0.341);
+  color: white;
+}
+.siparistablo textarea {
+  background-color: rgba(0, 0, 0, 0.463);
+  color: white;
+}
+
+.siparistablo textarea:focus {
+  background-color: rgba(0, 0, 0, 0.463);
+  color: white;
+}
+
+.sabit {
+  position: fixed;
+  top: 0;
+  right: 0;
+  font-size: 22px;
+  margin-right: 20px;
+  margin-top: 30px;
+}
+.sabit a {
+  color: white;
+  text-decoration: none;
+}
+
+.sabit a:hover {
+  color: rgba(22, 22, 150, 0.654);
+}
+
+.urunveri input {
+  margin-top: 28px;
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+}
+
+@media only screen and (max-width: 1300px) {
+  .siparistablo {
+    width: 100%;
+  }
+  .tablom {
+    max-width: 100% !important;
+    margin-left: 50%;
+    transform: translateX(-37%);
+  }
+}
+
+/*  Hide Show Css */
+
+.gizle {
+  display: none;
+}

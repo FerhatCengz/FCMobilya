@@ -1,0 +1,3121 @@
+<html>
+
+<head>
+
+
+    <title>Sepet</title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="css2.css">
+    <script src="js2.js"> </script>
+
+
+
+</head>
+
+<body>
+
+        <!-- Başlık Kısmı -->
+
+        <div class="container baslik">
+           
+            <div class="row col-12 justify-content-center">
+                    <h1 style="color: #fff;">SEPETİM'E</h1>    
+            </div>
+        
+            <div class="row col-12 justify-content-center">
+                <h1 style="color: #fff;">HOŞ GELDİNİZ</h1>    
+            </div>
+
+            <div class="sabit">
+                <a href="index.html"> Anasayfa
+                    <span class="fas fa-home"></span>
+                </a>
+            </div>
+        </div>
+
+            
+            <div class="row kapsayici-form w-50">
+
+                <div class="col-12">
+                    <div class="input-group" id="searchkelime">
+
+                        <div class="input-group-prepend">
+                            <div class="input-group-text group-renk">Ürün Kodu :</div>
+                        </div>
+                        <input class="form-control" id="aranankelime" >
+
+                        <div class="input-group-append">
+                            <button class="btn btn-success"  onclick="search();" >
+                                <span class="fa fa-search"></span>
+                            </button>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        
+
+
+
+            <!-- Güncel Tablo Kısmı-->
+
+        <div class="container-fluid">
+
+            <div class="row ml-auto">
+
+                <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                <div id="tableurun" class="col-md-auto gizle ">
+                    <table class="table table-bordered tablom w-100">
+                        <thead class="table-dark">
+                            <tr>
+                                <td class="text-center">Ürün Resmi</td>
+                                <td class="text-center">Ürün Adı</td>
+                                <td class="text-center">Ürün Fiyat</td>
+                                <td class="text-center">Ürün Adet</td>
+                            </tr>
+                        </thead>
+            
+            
+                        <tbody class="urunveri">
+                            <tr>
+                                <td>
+                                    <div style="width:150px;">
+                                        <!-- @@@@@@@@@@@ Resimin idsi -->
+                                        <img id="yemek" src="Yemek_Odasi/yemek.png" alt="" width="100%">
+                                    </div>
+                                </td>
+                                <td scope="col">
+                                    <p>İSTİKBAL YEMEK TAKIMI</p>
+                                </td>
+                                <td>
+                                    <div style="width: 150px;" class="text-center">
+                                                                                                                    <!-- Paranın idsi -->
+                                        <input class="w-50 text-center text-success" type="text" value="1.599 TL" id="money" disabled="disabled">
+                                    </div>
+                                </td>
+            
+                                <td >
+                                 <div class="tdtr">
+                                                                                            <!-- Para eksitme id -->
+                                    <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt();">
+                                        <span class="eksi">-</span>
+                                    </button>
+                                                                                                <!-- Parayi aktarma id -->
+                                        <input class="w-25 text-center" type="text" value="1" id="text_atama">
+                                    
+
+                                                                                                    <!-- Parayı Yükseltme id -->
+                                    <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir();">
+                                        <span class="arti">+</span>
+                                    </button>
+                                 </div>
+                                </td>
+                            
+                            </tr>
+                        
+            
+                        </tbody>
+                       </table>
+                       <div class="d-flex justify-content-center mt-5">
+                         <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+
+                       </div>
+                </div>
+
+                    <div id="siparistable" class="col-md-auto siparistablo gizle">
+
+                    <div class="card mr-5">
+                        <h1>Sipariş Özeti</h1>
+                        <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                        <h6> Fiyatı : <span id="spanid">1.599 TL </span> </h6>
+
+
+
+                        <div class="card-footer">
+                            <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                             <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                         </div>
+                    </div>
+
+                    
+                   </div>
+                
+                </div>
+    
+    
+    
+        </div>
+
+
+
+
+        <!-- Tablo 2 -->
+
+        <div class="container-fluid">
+
+            <div class="row ml-auto">
+
+                <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                <div id="tableurun2" class="col-md-auto gizle ">
+                    <table class="table table-bordered tablom w-100">
+                        <thead class="table-dark">
+                            <tr>
+                                <td class="text-center">Ürün Resmi</td>
+                                <td class="text-center">Ürün Adı</td>
+                                <td class="text-center">Ürün Fiyat</td>
+                                <td class="text-center">Ürün Adet</td>
+                            </tr>
+                        </thead>
+            
+            
+                        <tbody class="urunveri">
+                            <tr>
+                                <td>
+                                    <div style="width:150px;">
+                                        <!-- @@@@@@@@@@@ Resimin idsi -->
+                                        <img id="yemek2" src="Yemek_Odasi/yemek2.png" alt="" width="100%">
+                                    </div>
+                                </td>
+                                <td scope="col">
+                                    <p>İSTİKBAL YEMEK TAKIMI</p>
+                                </td>
+                                <td>
+                                    <div style="width: 150px;" class="text-center">
+                                                                                                                    <!-- Paranın idsi -->
+                                        <input class="w-50 text-center text-success" type="text" value="1.599 TL" id="money2" disabled="disabled">
+                                    </div>
+                                </td>
+            
+                                <td >
+                                 <div class="tdtr">
+                                                                                            <!-- Para eksitme id -->
+                                    <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt2();">
+                                        <span class="eksi">-</span>
+                                    </button>
+                                                                                                <!-- Parayi aktarma id -->
+                                        <input class="w-25 text-center" type="text" value="1" id="text_atama2">
+                                    
+
+                                                                                                    <!-- Parayı Yükseltme id -->
+                                    <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir2();">
+                                        <span class="arti">+</span>
+                                    </button>
+                                 </div>
+                                </td>
+                            
+                            </tr>
+                        
+            
+                        </tbody>
+                       </table>
+                       <div class="d-flex justify-content-center mt-5">
+                         <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+
+                       </div>
+                </div>
+
+                    <div id="siparistable2" class="col-md-auto siparistablo gizle">
+
+                    <div class="card mr-5">
+                        <h1>Sipariş Özeti</h1>
+                        <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                            <!-- Para id 2 -->
+                        <h6> Fiyatı : <span id="spanid2">1.599 TL </span> </h6>
+
+
+
+                        <div class="card-footer">
+                            <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                             <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                         </div>
+                    </div>
+
+                    
+                </div>
+                </div>
+    
+    
+    
+        </div>
+
+
+
+          <!-- Tablo 3 -->
+
+          <div class="container-fluid">
+
+            <div class="row ml-auto">
+
+                <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                <div id="tableurun3" class="col-md-auto gizle ">
+                    <table class="table table-bordered tablom w-100">
+                        <thead class="table-dark">
+                            <tr>
+                                <td class="text-center">Ürün Resmi</td>
+                                <td class="text-center">Ürün Adı</td>
+                                <td class="text-center">Ürün Fiyat</td>
+                                <td class="text-center">Ürün Adet</td>
+                            </tr>
+                        </thead>
+            
+            
+                        <tbody class="urunveri">
+                            <tr>
+                                <td>
+                                    <div style="width:150px;">
+                                        <!-- @@@@@@@@@@@ Resimin idsi -->
+                                        <img id="yemek" src="Yemek_Odasi/yemek3.png" alt="" width="100%">
+                                    </div>
+                                </td>
+                                <td scope="col">
+                                    <p>İSTİKBAL YEMEK TAKIMI</p>
+                                </td>
+                                <td>
+                                    <div style="width: 150px;" class="text-center">
+                                                                                                                    <!-- Paranın idsi -->
+                                        <input class="w-50 text-center text-success" type="text" value="1.599 TL" id="money3" disabled="disabled">
+                                    </div>
+                                </td>
+            
+                                <td >
+                                 <div class="tdtr">
+                                                                                            <!-- Para eksitme id -->
+                                    <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt3();">
+                                        <span class="eksi">-</span>
+                                    </button>
+                                                                                                <!-- Parayi aktarma id -->
+                                        <input class="w-25 text-center" type="text" value="1" id="text_atama3">
+                                    
+
+                                                                                                    <!-- Parayı Yükseltme id -->
+                                    <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir3();">
+                                        <span class="arti">+</span>
+                                    </button>
+                                 </div>
+                                </td>
+                            
+                            </tr>
+                        
+            
+                        </tbody>
+                       </table>
+                       <div class="d-flex justify-content-center mt-5">
+                         <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+
+                       </div>
+                </div>
+
+
+                    <!-- Sipariş tablo id -->
+                    <div id="siparistable3" class="col-md-auto siparistablo gizle">
+
+                    <div class="card mr-5">
+                        <h1>Sipariş Özeti</h1>
+                        <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                            <!-- Para id 2 -->
+                        <h6> Fiyatı : <span id="spanid3">1.599 TL </span> </h6>
+
+
+
+                        <div class="card-footer">
+                            <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                             <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                         </div>
+                    </div>
+
+                    
+                </div>
+                </div>
+    
+    
+    
+        </div>
+        
+
+        
+          <!-- Tablo 4 -->
+
+          <div class="container-fluid">
+
+            <div class="row ml-auto">
+
+                <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                <div id="tableurun4" class="col-md-auto gizle ">
+                    <table class="table table-bordered tablom w-100">
+                        <thead class="table-dark">
+                            <tr>
+                                <td class="text-center">Ürün Resmi</td>
+                                <td class="text-center">Ürün Adı</td>
+                                <td class="text-center">Ürün Fiyat</td>
+                                <td class="text-center">Ürün Adet</td>
+                            </tr>
+                        </thead>
+            
+            
+                        <tbody class="urunveri">
+                            <tr>
+                                <td>
+                                    <div style="width:150px;">
+                                        <!-- @@@@@@@@@@@ Resimin idsi -->
+                                        <img id="yemek" src="Yemek_Odasi/yemek4.png" alt="" width="100%">
+                                    </div>
+                                </td>
+                                <td scope="col">
+                                    <p>İSTİKBAL YEMEK TAKIMI</p>
+                                </td>
+                                <td>
+                                    <div style="width: 150px;" class="text-center">
+                                                                                                                    <!-- Paranın idsi -->
+                                        <input class="w-50 text-center text-success" type="text" value="1.599 TL" id="money4" disabled="disabled">
+                                    </div>
+                                </td>
+            
+                                <td >
+                                 <div class="tdtr">
+                                                                                            <!-- Para eksitme id -->
+                                    <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt4();">
+                                        <span class="eksi">-</span>
+                                    </button>
+                                                                                                <!-- Parayi aktarma id -->
+                                        <input class="w-25 text-center" type="text" value="1" id="text_atama4">
+                                    
+
+                                                                                                    <!-- Parayı Yükseltme id -->
+                                    <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir4();">
+                                        <span class="arti">+</span>
+                                    </button>
+                                 </div>
+                                </td>
+                            
+                            </tr>
+                        
+            
+                        </tbody>
+                       </table>
+                       <div class="d-flex justify-content-center mt-5">
+                         <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+
+                       </div>
+                </div>
+
+
+                    <!-- Sipariş tablo id -->
+                    <div id="siparistable4" class="col-md-auto siparistablo gizle">
+
+                    <div class="card mr-5">
+                        <h1>Sipariş Özeti</h1>
+                        <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                            <!-- Para id 2 -->
+                        <h6> Fiyatı : <span id="spanid4">1.599 TL </span> </h6>
+
+
+
+                        <div class="card-footer">
+                            <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                             <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                         </div>
+                    </div>
+
+                    
+                </div>
+                </div>
+    
+    
+    
+        </div>
+
+
+                  <!-- Tablo 5-->
+
+                  <div class="container-fluid">
+
+                    <div class="row ml-auto">
+        
+                        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                        <div id="tableurun5" class="col-md-auto gizle ">
+                            <table class="table table-bordered tablom w-100">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <td class="text-center">Ürün Resmi</td>
+                                        <td class="text-center">Ürün Adı</td>
+                                        <td class="text-center">Ürün Fiyat</td>
+                                        <td class="text-center">Ürün Adet</td>
+                                    </tr>
+                                </thead>
+                    
+                    
+                                <tbody class="urunveri">
+                                    <tr>
+                                        <td>
+                                            <div style="width:150px;">
+                                                <!-- @@@@@@@@@@@ Resimin idsi -->
+                                                <img id="yemek" src="Yemek_Odasi/yemek5.png" alt="" width="100%">
+                                            </div>
+                                        </td>
+                                        <td scope="col">
+                                            <p>İSTİKBAL YEMEK TAKIMI</p>
+                                        </td>
+                                        <td>
+                                            <div style="width: 150px;" class="text-center">
+                                                                                                                            <!-- Paranın idsi -->
+                                                <input class="w-50 text-center text-success" type="text" value="1.599 TL" id="money5" disabled="disabled">
+                                            </div>
+                                        </td>
+                    
+                                        <td >
+                                         <div class="tdtr">
+                                                                                                    <!-- Para eksitme id -->
+                                            <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt5();">
+                                                <span class="eksi">-</span>
+                                            </button>
+                                                                                                        <!-- Parayi aktarma id -->
+                                                <input class="w-25 text-center" type="text" value="1" id="text_atama5">
+                                            
+        
+                                                                                                            <!-- Parayı Yükseltme id -->
+                                            <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir5();">
+                                                <span class="arti">+</span>
+                                            </button>
+                                         </div>
+                                        </td>
+                                    
+                                    </tr>
+                                
+                    
+                                </tbody>
+                               </table>
+                               <div class="d-flex justify-content-center mt-5">
+                                 <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+        
+                               </div>
+                        </div>
+        
+        
+                            <!-- Sipariş tablo id -->
+                            <div id="siparistable5" class="col-md-auto siparistablo gizle">
+        
+                            <div class="card mr-5">
+                                <h1>Sipariş Özeti</h1>
+                                <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                                    <!-- Para id 2 -->
+                                <h6> Fiyatı : <span id="spanid5">1.599 TL </span> </h6>
+        
+        
+        
+                                <div class="card-footer">
+                                    <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                                     <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                                 </div>
+                            </div>
+        
+                            
+                        </div>
+                        </div>
+            
+            
+            
+                </div>
+        
+
+
+                                  <!-- Tablo 6-->
+
+                <div class="container-fluid">
+
+                                    <div class="row ml-auto">
+                        
+                                        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                                        <div id="tableurun6" class="col-md-auto gizle ">
+                                            <table class="table table-bordered tablom w-100">
+                                                <thead class="table-dark">
+                                                    <tr>
+                                                        <td class="text-center">Ürün Resmi</td>
+                                                        <td class="text-center">Ürün Adı</td>
+                                                        <td class="text-center">Ürün Fiyat</td>
+                                                        <td class="text-center">Ürün Adet</td>
+                                                    </tr>
+                                                </thead>
+                                    
+                                    
+                                                <tbody class="urunveri">
+                                                    <tr>
+                                                        <td>
+                                                            <div style="width:150px;">
+                                                                <!-- @@@@@@@@@@@ Resimin idsi -->
+                                                                <img id="yemek" src="Yemek_Odasi/yemek6.png" alt="" width="100%">
+                                                            </div>
+                                                        </td>
+                                                        <td scope="col">
+                                                            <p>İSTİKBAL YEMEK TAKIMI</p>
+                                                        </td>
+                                                        <td>
+                                                            <div style="width: 150px;" class="text-center">
+                                                                                                                                            <!-- Paranın idsi -->
+                                                                <input class="w-50 text-center text-success" type="text" value="1.599 TL" id="money6" disabled="disabled">
+                                                            </div>
+                                                        </td>
+                                    
+                                                        <td >
+                                                         <div class="tdtr">
+                                                                                                                    <!-- Para eksitme id -->
+                                                            <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt6();">
+                                                                <span class="eksi">-</span>
+                                                            </button>
+                                                                                                                        <!-- Parayi aktarma id -->
+                                                                <input class="w-25 text-center" type="text" value="1" id="text_atama6">
+                                                            
+                        
+                                                                                                                            <!-- Parayı Yükseltme id -->
+                                                            <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir6();">
+                                                                <span class="arti">+</span>
+                                                            </button>
+                                                         </div>
+                                                        </td>
+                                                    
+                                                    </tr>
+                                                
+                                    
+                                                </tbody>
+                                               </table>
+                                               <div class="d-flex justify-content-center mt-5">
+                                                 <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+                        
+                                               </div>
+                                        </div>
+                        
+                        
+                                            <!-- Sipariş tablo id -->
+                                            <div id="siparistable6" class="col-md-auto siparistablo gizle">
+                        
+                                            <div class="card mr-5">
+                                                <h1>Sipariş Özeti</h1>
+                                                <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                                                    <!-- Para id 2 -->
+                                                <h6> Fiyatı : <span id="spanid6">1.599 TL </span> </h6>
+                        
+                        
+                        
+                                                <div class="card-footer">
+                                                    <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                                                     <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                                                 </div>
+                                            </div>
+                        
+                                            
+                                        </div>
+                                        </div>
+                            
+                            
+                            
+               </div>
+
+
+                <!-- Tablo 7 -->
+               <div class="container-fluid">
+
+                <div class="row ml-auto">
+    
+                    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                    <div id="tableurun7" class="col-md-auto gizle ">
+                        <table class="table table-bordered tablom w-100">
+                            <thead class="table-dark">
+                                <tr>
+                                    <td class="text-center">Ürün Resmi</td>
+                                    <td class="text-center">Ürün Adı</td>
+                                    <td class="text-center">Ürün Fiyat</td>
+                                    <td class="text-center">Ürün Adet</td>
+                                </tr>
+                            </thead>
+                
+                
+                            <tbody class="urunveri">
+                                <tr>
+                                    <td>
+                                        <div style="width:150px;">
+                                            <!-- @@@@@@@@@@@ Resimin idsi -->
+                                            <img id="yemek" src="Yemek_Odasi/yemek7.jpg" alt="" width="100%">
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        <p>İSTİKBAL YEMEK TAKIMI</p>
+                                    </td>
+                                    <td>
+                                        <div style="width: 150px;" class="text-center">
+                                                                                                                        <!-- Paranın idsi -->
+                                            <input class="w-50 text-center text-success" type="text" value="1.599 TL" id="money7" disabled="disabled">
+                                        </div>
+                                    </td>
+                
+                                    <td >
+                                     <div class="tdtr">
+                                                                                                <!-- Para eksitme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt7();">
+                                            <span class="eksi">-</span>
+                                        </button>
+                                                                                                    <!-- Parayi aktarma id -->
+                                            <input class="w-25 text-center" type="text" value="1" id="text_atama7">
+                                        
+    
+                                                                                                        <!-- Parayı Yükseltme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir7();">
+                                            <span class="arti">+</span>
+                                        </button>
+                                     </div>
+                                    </td>
+                                
+                                </tr>
+                            
+                
+                            </tbody>
+                           </table>
+                           <div class="d-flex justify-content-center mt-5">
+                             <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+    
+                           </div>
+                    </div>
+    
+    
+                        <!-- Sipariş tablo id -->
+                        <div id="siparistable7" class="col-md-auto siparistablo gizle">
+    
+                        <div class="card mr-5">
+                            <h1>Sipariş Özeti</h1>
+                            <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                                <!-- Para id 2 -->
+                            <h6> Fiyatı : <span id="spanid7">1.599 TL </span> </h6>
+    
+    
+    
+                            <div class="card-footer">
+                                <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                                 <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                             </div>
+                        </div>
+    
+                        
+                    </div>
+                    </div>
+        
+        
+        
+            </div>
+
+                <!-- Tablo 8 -->
+            <div class="container-fluid">
+
+                <div class="row ml-auto">
+    
+                    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                    <div id="tableurun8" class="col-md-auto gizle ">
+                        <table class="table table-bordered tablom w-100">
+                            <thead class="table-dark">
+                                <tr>
+                                    <td class="text-center">Ürün Resmi</td>
+                                    <td class="text-center">Ürün Adı</td>
+                                    <td class="text-center">Ürün Fiyat</td>
+                                    <td class="text-center">Ürün Adet</td>
+                                </tr>
+                            </thead>
+                
+                
+                            <tbody class="urunveri">
+                                <tr>
+                                    <td>
+                                        <div style="width:150px;">
+                                            <!-- @@@@@@@@@@@ Resimin idsi -->
+                                            <img id="yemek" src="Yemek_Odasi/yemek8.jpg" alt="" width="100%">
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        <p>İSTİKBAL YEMEK TAKIMI</p>
+                                    </td>
+                                    <td>
+                                        <div style="width: 150px;" class="text-center">
+                                                                                                                        <!-- Paranın idsi -->
+                                            <input class="w-50 text-center text-success" type="text" value="1.599 TL" id="money8" disabled="disabled">
+                                        </div>
+                                    </td>
+                
+                                    <td >
+                                     <div class="tdtr">
+                                                                                                <!-- Para eksitme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt8();">
+                                            <span class="eksi">-</span>
+                                        </button>
+                                                                                                    <!-- Parayi aktarma id -->
+                                            <input class="w-25 text-center" type="text" value="1" id="text_atama8" disabled="disabled">
+                                        
+    
+                                                                                                        <!-- Parayı Yükseltme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir8();">
+                                            <span class="arti">+</span>
+                                        </button>
+                                     </div>
+                                    </td>
+                                
+                                </tr>
+                            
+                
+                            </tbody>
+                           </table>
+                           <div class="d-flex justify-content-center mt-5">
+                             <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+    
+                           </div>
+                    </div>
+    
+    
+                        <!-- Sipariş tablo id -->
+                        <div id="siparistable8" class="col-md-auto siparistablo gizle">
+    
+                        <div class="card mr-5">
+                            <h1>Sipariş Özeti</h1>
+                            <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                                <!-- Para id 2 -->
+                            <h6> Fiyatı : <span id="spanid8">1.599 TL </span> </h6>
+    
+    
+    
+                            <div class="card-footer">
+                                <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                                 <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                             </div>
+                        </div>
+    
+                        
+                    </div>
+                    </div>
+        
+        
+        
+            </div>
+
+
+                <!-- Tablo 9 -->
+            <div class="container-fluid">
+
+                <div class="row ml-auto">
+    
+                    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                    <div id="tableurun9" class="col-md-auto gizle ">
+                        <table class="table table-bordered tablom w-100">
+                            <thead class="table-dark">
+                                <tr>
+                                    <td class="text-center">Ürün Resmi</td>
+                                    <td class="text-center">Ürün Adı</td>
+                                    <td class="text-center">Ürün Fiyat</td>
+                                    <td class="text-center">Ürün Adet</td>
+                                </tr>
+                            </thead>
+                
+                
+                            <tbody class="urunveri">
+                                <tr>
+                                    <td>
+                                        <div style="width:150px;">
+                                            <!-- @@@@@@@@@@@ Resimin idsi -->
+                                            <img id="yemek" src="Yemek_Odasi/yemek9.jpg" alt="" width="100%">
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        <p>İSTİKBAL YEMEK TAKIMI</p>
+                                    </td>
+                                    <td>
+                                        <div style="width: 150px;" class="text-center">
+                                                                                                                        <!-- Paranın idsi -->
+                                            <input class="w-50 text-center text-success" type="text" value="1.599 TL" id="money9" disabled="disabled">
+                                        </div>
+                                    </td>
+                
+                                    <td >
+                                     <div class="tdtr">
+                                                                                                <!-- Para eksitme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt9();">
+                                            <span class="eksi">-</span>
+                                        </button>
+                                                                                                    <!-- Parayi aktarma id -->
+                                            <input class="w-25 text-center" type="text" value="1" id="text_atama9" disabled="disabled">
+                                        
+    
+                                                                                                        <!-- Parayı Yükseltme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir9();">
+                                            <span class="arti">+</span>
+                                        </button>
+                                     </div>
+                                    </td>
+                                
+                                </tr>
+                            
+                
+                            </tbody>
+                           </table>
+                           <div class="d-flex justify-content-center mt-5">
+                             <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+    
+                           </div>
+                    </div>
+    
+    
+                        <!-- Sipariş tablo id -->
+                        <div id="siparistable9" class="col-md-auto siparistablo gizle">
+    
+                        <div class="card mr-5">
+                            <h1>Sipariş Özeti</h1>
+                            <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                                <!-- Para id 2 -->
+                            <h6> Fiyatı : <span id="spanid9">1.599 TL </span> </h6>
+    
+    
+    
+                            <div class="card-footer">
+                                <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                                 <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                             </div>
+                        </div>
+    
+                        
+                    </div>
+                    </div>
+        
+        
+        
+            </div>
+
+
+
+                <!-- Tablo 10 -->
+            <div class="container-fluid">
+
+                <div class="row ml-auto">
+    
+                    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                    <div id="tableurun10" class="col-md-auto gizle ">
+                        <table class="table table-bordered tablom w-100">
+                            <thead class="table-dark">
+                                <tr>
+                                    <td class="text-center">Ürün Resmi</td>
+                                    <td class="text-center">Ürün Adı</td>
+                                    <td class="text-center">Ürün Fiyat</td>
+                                    <td class="text-center">Ürün Adet</td>
+                                </tr>
+                            </thead>
+                
+                
+                            <tbody class="urunveri">
+                                <tr>
+                                    <td>
+                                        <div style="width:150px;">
+                                            <!-- @@@@@@@@@@@ Resimin idsi -->
+                                            <img id="yemek" src="Yemek_Odasi/yemek10.jpg" alt="" width="100%">
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        <p>İSTİKBAL YEMEK TAKIMI</p>
+                                    </td>
+                                    <td>
+                                        <div style="width: 150px;" class="text-center">
+                                                                                                                        <!-- Paranın idsi -->
+                                            <input class="w-50 text-center text-success" type="text" value="1.599 TL" id="money10" disabled="disabled">
+                                        </div>
+                                    </td>
+                
+                                    <td >
+                                     <div class="tdtr">
+                                                                                                <!-- Para eksitme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt10();">
+                                            <span class="eksi">-</span>
+                                        </button>
+                                                                                                    <!-- Parayi aktarma id -->
+                                            <input class="w-25 text-center" type="text" value="1" id="text_atama10" disabled="disabled">
+                                        
+    
+                                                                                                        <!-- Parayı Yükseltme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir10();">
+                                            <span class="arti">+</span>
+                                        </button>
+                                     </div>
+                                    </td>
+                                
+                                </tr>
+                            
+                
+                            </tbody>
+                           </table>
+                           <div class="d-flex justify-content-center mt-5">
+                             <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+    
+                           </div>
+                    </div>
+    
+    
+                        <!-- Sipariş tablo id -->
+                        <div id="siparistable10" class="col-md-auto siparistablo gizle">
+    
+                        <div class="card mr-5">
+                            <h1>Sipariş Özeti</h1>
+                            <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                                <!-- Para id 2 -->
+                            <h6> Fiyatı : <span id="spanid10">1.599 TL </span> </h6>
+    
+    
+    
+                            <div class="card-footer">
+                                <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                                 <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                             </div>
+                        </div>
+    
+                        
+                    </div>
+                    </div>
+        
+        
+        
+            </div>
+
+
+            <!-- Tablo 11 -->
+
+            <div class="container-fluid">
+
+                <div class="row ml-auto">
+    
+                    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                    <div id="tableurun11" class="col-md-auto gizle ">
+                        <table class="table table-bordered tablom w-100">
+                            <thead class="table-dark">
+                                <tr>
+                                    <td class="text-center">Ürün Resmi</td>
+                                    <td class="text-center">Ürün Adı</td>
+                                    <td class="text-center">Ürün Fiyat</td>
+                                    <td class="text-center">Ürün Adet</td>
+                                </tr>
+                            </thead>
+                
+                
+                            <tbody class="urunveri">
+                                <tr>
+                                    <td>
+                                        <div style="width:150px;">
+                                            <!-- @@@@@@@@@@@ Resimin idsi -->
+                                            <img id="yemek" src="Yemek_Odasi/yemek11.jpg" alt="" width="100%">
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        <p>İSTİKBAL YEMEK TAKIMI</p>
+                                    </td>
+                                    <td>
+                                        <div style="width: 150px;" class="text-center">
+                                                                                                                        <!-- Paranın idsi -->
+                                            <input class="w-50 text-center text-success" type="text" value="1.599 TL" id="money11" disabled="disabled">
+                                        </div>
+                                    </td>
+                
+                                    <td >
+                                     <div class="tdtr">
+                                                                                                <!-- Para eksitme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt11();">
+                                            <span class="eksi">-</span>
+                                        </button>
+                                                                                                    <!-- Parayi aktarma id -->
+                                            <input class="w-25 text-center" type="text" value="1" id="text_atama11" disabled="disabled">
+                                        
+    
+                                                                                                        <!-- Parayı Yükseltme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir11();">
+                                            <span class="arti">+</span>
+                                        </button>
+                                     </div>
+                                    </td>
+                                
+                                </tr>
+                            
+                
+                            </tbody>
+                           </table>
+                           <div class="d-flex justify-content-center mt-5">
+                             <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+    
+                           </div>
+                    </div>
+    
+    
+                        <!-- Sipariş tablo id -->
+                        <div id="siparistable11" class="col-md-auto siparistablo gizle">
+    
+                        <div class="card mr-5">
+                            <h1>Sipariş Özeti</h1>
+                            <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                                <!-- Para id 2 -->
+                            <h6> Fiyatı : <span id="spanid11">1.599 TL </span> </h6>
+    
+    
+    
+                            <div class="card-footer">
+                                <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                                 <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                             </div>
+                        </div>
+    
+                        
+                    </div>
+                    </div>
+        
+        
+        
+            </div>
+
+
+            <!-- Tablo 12 -->
+
+            <div class="container-fluid">
+
+                <div class="row ml-auto">
+    
+                    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                    <div id="tableurun12" class="col-md-auto gizle ">
+                        <table class="table table-bordered tablom w-100">
+                            <thead class="table-dark">
+                                <tr>
+                                    <td class="text-center">Ürün Resmi</td>
+                                    <td class="text-center">Ürün Adı</td>
+                                    <td class="text-center">Ürün Fiyat</td>
+                                    <td class="text-center">Ürün Adet</td>
+                                </tr>
+                            </thead>
+                
+                
+                            <tbody class="urunveri">
+                                <tr>
+                                    <td>
+                                        <div style="width:150px;">
+                                            <!-- @@@@@@@@@@@ Resimin idsi -->
+                                            <img id="yemek" src="Yemek_Odasi/yemek12.jpg" alt="" width="100%">
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        <p>İSTİKBAL YEMEK TAKIMI</p>
+                                    </td>
+                                    <td>
+                                        <div style="width: 150px;" class="text-center">
+                                                                                                                        <!-- Paranın idsi -->
+                                            <input class="w-50 text-center text-success" type="text" value="1.599 TL" id="money12" disabled="disabled">
+                                        </div>
+                                    </td>
+                
+                                    <td >
+                                     <div class="tdtr">
+                                                                                                <!-- Para eksitme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt12();">
+                                            <span class="eksi">-</span>
+                                        </button>
+                                                                                                    <!-- Parayi aktarma id -->
+                                            <input class="w-25 text-center" type="text" value="1" id="text_atama12" disabled="disabled">
+                                        
+    
+                                                                                                        <!-- Parayı Yükseltme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir12();">
+                                            <span class="arti">+</span>
+                                        </button>
+                                     </div>
+                                    </td>
+                                
+                                </tr>
+                            
+                
+                            </tbody>
+                           </table>
+                           <div class="d-flex justify-content-center mt-5">
+                             <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+    
+                           </div>
+                    </div>
+    
+    
+                        <!-- Sipariş tablo id -->
+                        <div id="siparistable12" class="col-md-auto siparistablo gizle">
+    
+                        <div class="card mr-5">
+                            <h1>Sipariş Özeti</h1>
+                            <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                                <!-- Para id 2 -->
+                            <h6> Fiyatı : <span id="spanid12">1.599 TL </span> </h6>
+    
+    
+    
+                            <div class="card-footer">
+                                <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                                 <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                             </div>
+                        </div>
+    
+                        
+                    </div>
+                    </div>
+        
+        
+        
+            </div>
+
+
+                <!-- Tablo 13 -->
+            <div class="container-fluid">
+
+                <div class="row ml-auto">
+    
+                    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                    <div id="tableurun13" class="col-md-auto gizle ">
+                        <table class="table table-bordered tablom w-100">
+                            <thead class="table-dark">
+                                <tr>
+                                    <td class="text-center">Ürün Resmi</td>
+                                    <td class="text-center">Ürün Adı</td>
+                                    <td class="text-center">Ürün Fiyat</td>
+                                    <td class="text-center">Ürün Adet</td>
+                                </tr>
+                            </thead>
+                
+                
+                            <tbody class="urunveri">
+                                <tr>
+                                    <td>
+                                        <div style="width:150px;">
+                                            <!-- @@@@@@@@@@@ Resimin idsi -->
+                                            <img id="yemek" src="Yemek_Odasi/sandalye.jpg" alt="" width="100%">
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        <p>İSTİKBAL YEMEK TAKIMI</p>
+                                    </td>
+                                    <td>
+                                        <div style="width: 150px;" class="text-center">
+                                                                                                                        <!-- Paranın idsi -->
+                                            <input class="w-50 text-center text-success" type="text" value="599 TL" id="money13" disabled="disabled">
+                                        </div>
+                                    </td>
+                
+                                    <td >
+                                     <div class="tdtr">
+                                                                                                <!-- Para eksitme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt13();">
+                                            <span class="eksi">-</span>
+                                        </button>
+                                                                                                    <!-- Parayi aktarma id -->
+                                            <input class="w-25 text-center" type="text" value="1" id="text_atama13" disabled="disabled">
+                                        
+    
+                                                                                                        <!-- Parayı Yükseltme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir13();">
+                                            <span class="arti">+</span>
+                                        </button>
+                                     </div>
+                                    </td>
+                                
+                                </tr>
+                            
+                
+                            </tbody>
+                           </table>
+                           <div class="d-flex justify-content-center mt-5">
+                             <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+    
+                           </div>
+                    </div>
+    
+    
+                        <!-- Sipariş tablo id -->
+                        <div id="siparistable13" class="col-md-auto siparistablo gizle">
+    
+                        <div class="card mr-5">
+                            <h1>Sipariş Özeti</h1>
+                            <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                                <!-- Para id 2 -->
+                            <h6> Fiyatı : <span id="spanid13">599 TL </span> </h6>
+    
+    
+    
+                            <div class="card-footer">
+                                <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                                 <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                             </div>
+                        </div>
+    
+                        
+                    </div>
+                    </div>
+        
+        
+        
+            </div>
+
+                <!-- Tablo 14 -->
+                <div class="container-fluid">
+
+                    <div class="row ml-auto">
+        
+                        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                        <div id="tableurun14" class="col-md-auto gizle ">
+                            <table class="table table-bordered tablom w-100">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <td class="text-center">Ürün Resmi</td>
+                                        <td class="text-center">Ürün Adı</td>
+                                        <td class="text-center">Ürün Fiyat</td>
+                                        <td class="text-center">Ürün Adet</td>
+                                    </tr>
+                                </thead>
+                    
+                    
+                                <tbody class="urunveri">
+                                    <tr>
+                                        <td>
+                                            <div style="width:150px;">
+                                                <!-- @@@@@@@@@@@ Resimin idsi -->
+                                                <img id="yemek" src="Yemek_Odasi/sandalye2.jpg" alt="" width="100%">
+                                            </div>
+                                        </td>
+                                        <td scope="col">
+                                            <p>İSTİKBAL YEMEK TAKIMI</p>
+                                        </td>
+                                        <td>
+                                            <div style="width: 150px;" class="text-center">
+                                                                                                                            <!-- Paranın idsi -->
+                                                <input class="w-50 text-center text-success" type="text" value="599 TL" id="money14" disabled="disabled">
+                                            </div>
+                                        </td>
+                    
+                                        <td >
+                                         <div class="tdtr">
+                                                                                                    <!-- Para eksitme id -->
+                                            <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt14();">
+                                                <span class="eksi">-</span>
+                                            </button>
+                                                                                                        <!-- Parayi aktarma id -->
+                                                <input class="w-25 text-center" type="text" value="1" id="text_atama14" disabled="disabled">
+                                            
+        
+                                                                                                            <!-- Parayı Yükseltme id -->
+                                            <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir14();">
+                                                <span class="arti">+</span>
+                                            </button>
+                                         </div>
+                                        </td>
+                                    
+                                    </tr>
+                                
+                    
+                                </tbody>
+                               </table>
+                               <div class="d-flex justify-content-center mt-5">
+                                 <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+        
+                               </div>
+                        </div>
+        
+        
+                            <!-- Sipariş tablo id -->
+                            <div id="siparistable14" class="col-md-auto siparistablo gizle">
+        
+                            <div class="card mr-5">
+                                <h1>Sipariş Özeti</h1>
+                                <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                                    <!-- Para id 2 -->
+                                <h6> Fiyatı : <span id="spanid14">599 TL </span> </h6>
+        
+        
+        
+                                <div class="card-footer">
+                                    <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                                     <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                                 </div>
+                            </div>
+        
+                            
+                        </div>
+                        </div>
+            
+            
+            
+                </div>
+            
+              <!-- Tablo 15 -->
+              <div class="container-fluid">
+
+                <div class="row ml-auto">
+    
+                    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                    <div id="tableurun15" class="col-md-auto gizle ">
+                        <table class="table table-bordered tablom w-100">
+                            <thead class="table-dark">
+                                <tr>
+                                    <td class="text-center">Ürün Resmi</td>
+                                    <td class="text-center">Ürün Adı</td>
+                                    <td class="text-center">Ürün Fiyat</td>
+                                    <td class="text-center">Ürün Adet</td>
+                                </tr>
+                            </thead>
+                
+                
+                            <tbody class="urunveri">
+                                <tr>
+                                    <td>
+                                        <div style="width:150px;">
+                                            <!-- @@@@@@@@@@@ Resimin idsi -->
+                                            <img id="yemek" src="Yemek_Odasi/sandalye3.jpg" alt="" width="100%">
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        <p>İSTİKBAL YEMEK TAKIMI</p>
+                                    </td>
+                                    <td>
+                                        <div style="width: 150px;" class="text-center">
+                                                                                                                        <!-- Paranın idsi -->
+                                            <input class="w-50 text-center text-success" type="text" value="599 TL" id="money15" disabled="disabled">
+                                        </div>
+                                    </td>
+                
+                                    <td >
+                                     <div class="tdtr">
+                                                                                                <!-- Para eksitme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt15();">
+                                            <span class="eksi">-</span>
+                                        </button>
+                                                                                                    <!-- Parayi aktarma id -->
+                                            <input class="w-25 text-center" type="text" value="1" id="text_atama15" disabled="disabled">
+                                        
+    
+                                                                                                        <!-- Parayı Yükseltme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir15();">
+                                            <span class="arti">+</span>
+                                        </button>
+                                     </div>
+                                    </td>
+                                
+                                </tr>
+                            
+                
+                            </tbody>
+                           </table>
+                           <div class="d-flex justify-content-center mt-5">
+                             <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+    
+                           </div>
+                    </div>
+    
+    
+                        <!-- Sipariş tablo id -->
+                        <div id="siparistable15" class="col-md-auto siparistablo gizle">
+    
+                        <div class="card mr-5">
+                            <h1>Sipariş Özeti</h1>
+                            <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                                <!-- Para id 2 -->
+                            <h6> Fiyatı : <span id="spanid15">599 TL </span> </h6>
+    
+    
+    
+                            <div class="card-footer">
+                                <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                                 <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                             </div>
+                        </div>
+    
+                        
+                    </div>
+                    </div>
+        
+        
+        
+            </div>
+
+            <!-- Tablo 16 -->
+            <div class="container-fluid">
+
+                <div class="row ml-auto">
+    
+                    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                    <div id="tableurun16" class="col-md-auto gizle ">
+                        <table class="table table-bordered tablom w-100">
+                            <thead class="table-dark">
+                                <tr>
+                                    <td class="text-center">Ürün Resmi</td>
+                                    <td class="text-center">Ürün Adı</td>
+                                    <td class="text-center">Ürün Fiyat</td>
+                                    <td class="text-center">Ürün Adet</td>
+                                </tr>
+                            </thead>
+                
+                
+                            <tbody class="urunveri">
+                                <tr>
+                                    <td>
+                                        <div style="width:150px;">
+                                            <!-- @@@@@@@@@@@ Resimin idsi -->
+                                            <img id="yemek" src="Yemek_Odasi/sandalye4.jpg" alt="" width="100%">
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        <p>İSTİKBAL YEMEK TAKIMI</p>
+                                    </td>
+                                    <td>
+                                        <div style="width: 150px;" class="text-center">
+                                                                                                                        <!-- Paranın idsi -->
+                                            <input class="w-50 text-center text-success" type="text" value="599 TL" id="money16" disabled="disabled">
+                                        </div>
+                                    </td>
+                
+                                    <td >
+                                     <div class="tdtr">
+                                                                                                <!-- Para eksitme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt16();">
+                                            <span class="eksi">-</span>
+                                        </button>
+                                                                                                    <!-- Parayi aktarma id -->
+                                            <input class="w-25 text-center" type="text" value="1" id="text_atama16" disabled="disabled">
+                                        
+    
+                                                                                                        <!-- Parayı Yükseltme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir16();">
+                                            <span class="arti">+</span>
+                                        </button>
+                                     </div>
+                                    </td>
+                                
+                                </tr>
+                            
+                
+                            </tbody>
+                           </table>
+                           <div class="d-flex justify-content-center mt-5">
+                             <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+    
+                           </div>
+                    </div>
+    
+    
+                        <!-- Sipariş tablo id -->
+                        <div id="siparistable16" class="col-md-auto siparistablo gizle">
+    
+                        <div class="card mr-5">
+                            <h1>Sipariş Özeti</h1>
+                            <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                                <!-- Para id 2 -->
+                            <h6> Fiyatı : <span id="spanid16">599 TL </span> </h6>
+    
+    
+    
+                            <div class="card-footer">
+                                <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                                 <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                             </div>
+                        </div>
+    
+                        
+                    </div>
+                    </div>
+        
+        
+        
+            </div>
+                        
+            <!-- Tablo 17 -->
+            <div class="container-fluid">
+
+                <div class="row ml-auto">
+    
+                    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                    <div id="tableurun17" class="col-md-auto gizle ">
+                        <table class="table table-bordered tablom w-100">
+                            <thead class="table-dark">
+                                <tr>
+                                    <td class="text-center">Ürün Resmi</td>
+                                    <td class="text-center">Ürün Adı</td>
+                                    <td class="text-center">Ürün Fiyat</td>
+                                    <td class="text-center">Ürün Adet</td>
+                                </tr>
+                            </thead>
+                
+                
+                            <tbody class="urunveri">
+                                <tr>
+                                    <td>
+                                        <div style="width:150px;">
+                                            <!-- @@@@@@@@@@@ Resimin idsi -->
+                                            <img id="yemek" src="Yemek_Odasi/sandalye5.jpg" alt="" width="100%">
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        <p>İSTİKBAL YEMEK TAKIMI</p>
+                                    </td>
+                                    <td>
+                                        <div style="width: 150px;" class="text-center">
+                                                                                                                        <!-- Paranın idsi -->
+                                            <input class="w-50 text-center text-success" type="text" value="599 TL" id="money17" disabled="disabled">
+                                        </div>
+                                    </td>
+                
+                                    <td >
+                                     <div class="tdtr">
+                                                                                                <!-- Para eksitme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt17();">
+                                            <span class="eksi">-</span>
+                                        </button>
+                                                                                                    <!-- Parayi aktarma id -->
+                                            <input class="w-25 text-center" type="text" value="1" id="text_atama17" disabled="disabled">
+                                        
+    
+                                                                                                        <!-- Parayı Yükseltme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir17();">
+                                            <span class="arti">+</span>
+                                        </button>
+                                     </div>
+                                    </td>
+                                
+                                </tr>
+                            
+                
+                            </tbody>
+                           </table>
+                           <div class="d-flex justify-content-center mt-5">
+                             <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+    
+                           </div>
+                    </div>
+    
+    
+                        <!-- Sipariş tablo id -->
+                        <div id="siparistable17" class="col-md-auto siparistablo gizle">
+    
+                        <div class="card mr-5">
+                            <h1>Sipariş Özeti</h1>
+                            <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                                <!-- Para id 2 -->
+                            <h6> Fiyatı : <span id="spanid17">599 TL </span> </h6>
+    
+    
+    
+                            <div class="card-footer">
+                                <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                                 <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                             </div>
+                        </div>
+    
+                        
+                    </div>
+                    </div>
+        
+        
+        
+            </div>
+
+            <!-- Tablo 18 -->
+            <div class="container-fluid">
+
+                <div class="row ml-auto">
+    
+                    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                    <div id="tableurun18" class="col-md-auto gizle ">
+                        <table class="table table-bordered tablom w-100">
+                            <thead class="table-dark">
+                                <tr>
+                                    <td class="text-center">Ürün Resmi</td>
+                                    <td class="text-center">Ürün Adı</td>
+                                    <td class="text-center">Ürün Fiyat</td>
+                                    <td class="text-center">Ürün Adet</td>
+                                </tr>
+                            </thead>
+                
+                
+                            <tbody class="urunveri">
+                                <tr>
+                                    <td>
+                                        <div style="width:150px;">
+                                            <!-- @@@@@@@@@@@ Resimin idsi -->
+                                            <img id="yemek" src="Yemek_Odasi/sandalye6.jpg" alt="" width="100%">
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        <p>İSTİKBAL YEMEK TAKIMI</p>
+                                    </td>
+                                    <td>
+                                        <div style="width: 150px;" class="text-center">
+                                                                                                                        <!-- Paranın idsi -->
+                                            <input class="w-50 text-center text-success" type="text" value="599 TL" id="money18" disabled="disabled">
+                                        </div>
+                                    </td>
+                
+                                    <td >
+                                     <div class="tdtr">
+                                                                                                <!-- Para eksitme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt18();">
+                                            <span class="eksi">-</span>
+                                        </button>
+                                                                                                    <!-- Parayi aktarma id -->
+                                            <input class="w-25 text-center" type="text" value="1" id="text_atama18" disabled="disabled">
+                                        
+    
+                                                                                                        <!-- Parayı Yükseltme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir18();">
+                                            <span class="arti">+</span>
+                                        </button>
+                                     </div>
+                                    </td>
+                                
+                                </tr>
+                            
+                
+                            </tbody>
+                           </table>
+                           <div class="d-flex justify-content-center mt-5">
+                             <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+    
+                           </div>
+                    </div>
+    
+    
+                        <!-- Sipariş tablo id -->
+                        <div id="siparistable18" class="col-md-auto siparistablo gizle">
+    
+                        <div class="card mr-5">
+                            <h1>Sipariş Özeti</h1>
+                            <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                                <!-- Para id 2 -->
+                            <h6> Fiyatı : <span id="spanid18">599 TL </span> </h6>
+    
+    
+    
+                            <div class="card-footer">
+                                <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                                 <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                             </div>
+                        </div>
+    
+                        
+                    </div>
+                    </div>
+        
+        
+        
+            </div>
+
+
+
+
+
+            <!-- Yatak odası Tablo 1-->
+            <div class="container-fluid">
+
+                <div class="row ml-auto">
+    
+                    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                    <div id="tableurun20" class="col-md-auto gizle ">
+                        <table class="table table-bordered tablom w-100">
+                            <thead class="table-dark">
+                                <tr>
+                                    <td class="text-center">Ürün Resmi</td>
+                                    <td class="text-center">Ürün Adı</td>
+                                    <td class="text-center">Ürün Fiyat</td>
+                                    <td class="text-center">Ürün Adet</td>
+                                </tr>
+                            </thead>
+                
+                
+                            <tbody class="urunveri">
+                                <tr>
+                                    <td>
+                                        <div style="width:150px;">
+                                            <!-- @@@@@@@@@@@ Resimin idsi -->
+                                            <img id="yemek" src="Yatakodasi/yatak.jpg" alt="" width="100%">
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        <p>İSTİKBAL YEMEK TAKIMI</p>
+                                    </td>
+                                    <td>
+                                        <div style="width: 150px;" class="text-center">
+                                                                                                                        <!-- Paranın idsi -->
+                                            <input class="w-50 text-center text-success" type="text" value="11.599 TL" id="money20" disabled="disabled">
+                                        </div>
+                                    </td>
+                
+                                    <td >
+                                     <div class="tdtr">
+                                                                                                <!-- Para eksitme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt20();">
+                                            <span class="eksi">-</span>
+                                        </button>
+                                                                                                    <!-- Parayi aktarma id -->
+                                            <input class="w-25 text-center" type="text" value="1" id="text_atama20" disabled="disabled">
+                                        
+    
+                                                                                                        <!-- Parayı Yükseltme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir20();">
+                                            <span class="arti">+</span>
+                                        </button>
+                                     </div>
+                                    </td>
+                                
+                                </tr>
+                            
+                
+                            </tbody>
+                           </table>
+                           <div class="d-flex justify-content-center mt-5">
+                             <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+    
+                           </div>
+                    </div>
+    
+    
+                        <!-- Sipariş tablo id -->
+                        <div id="siparistable20" class="col-md-auto siparistablo gizle">
+    
+                        <div class="card mr-5">
+                            <h1>Sipariş Özeti</h1>
+                            <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                                <!-- Para id 2 -->
+                            <h6> Fiyatı : <span id="spanid20">11.599 TL </span> </h6>
+    
+    
+    
+                            <div class="card-footer">
+                                <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                                 <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                             </div>
+                        </div>
+    
+                        
+                    </div>
+                    </div>
+        
+        
+        
+            </div>
+
+            <!-- Y.O Tablo 2 -->
+            <div class="container-fluid">
+
+                <div class="row ml-auto">
+    
+                    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                    <div id="tableurun21" class="col-md-auto gizle ">
+                        <table class="table table-bordered tablom w-100">
+                            <thead class="table-dark">
+                                <tr>
+                                    <td class="text-center">Ürün Resmi</td>
+                                    <td class="text-center">Ürün Adı</td>
+                                    <td class="text-center">Ürün Fiyat</td>
+                                    <td class="text-center">Ürün Adet</td>
+                                </tr>
+                            </thead>
+                
+                
+                            <tbody class="urunveri">
+                                <tr>
+                                    <td>
+                                        <div style="width:150px;">
+                                            <!-- @@@@@@@@@@@ Resimin idsi -->
+                                            <img id="yemek" src="Yatakodasi/yatak2.jpg" alt="" width="100%">
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        <p>İSTİKBAL YEMEK TAKIMI</p>
+                                    </td>
+                                    <td>
+                                        <div style="width: 150px;" class="text-center">
+                                                                                                                        <!-- Paranın idsi -->
+                                            <input class="w-50 text-center text-success" type="text" value="11.599 TL" id="money21" disabled="disabled">
+                                        </div>
+                                    </td>
+                
+                                    <td >
+                                     <div class="tdtr">
+                                                                                                <!-- Para eksitme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt21();">
+                                            <span class="eksi">-</span>
+                                        </button>
+                                                                                                    <!-- Parayi aktarma id -->
+                                            <input class="w-25 text-center" type="text" value="1" id="text_atama21" disabled="disabled">
+                                        
+    
+                                                                                                        <!-- Parayı Yükseltme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir21();">
+                                            <span class="arti">+</span>
+                                        </button>
+                                     </div>
+                                    </td>
+                                
+                                </tr>
+                            
+                
+                            </tbody>
+                           </table>
+                           <div class="d-flex justify-content-center mt-5">
+                             <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+    
+                           </div>
+                    </div>
+    
+    
+                        <!-- Sipariş tablo id -->
+                        <div id="siparistable21" class="col-md-auto siparistablo gizle">
+    
+                        <div class="card mr-5">
+                            <h1>Sipariş Özeti</h1>
+                            <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                                <!-- Para id 2 -->
+                            <h6> Fiyatı : <span id="spanid21">11.599 TL </span> </h6>
+    
+    
+    
+                            <div class="card-footer">
+                                <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                                 <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                             </div>
+                        </div>
+    
+                        
+                    </div>
+                    </div>
+        
+        
+        
+            </div>
+
+
+            <!-- Y.O Tablo 3 -->
+            <div class="container-fluid">
+
+                <div class="row ml-auto">
+    
+                    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                    <div id="tableurun23" class="col-md-auto gizle ">
+                        <table class="table table-bordered tablom w-100">
+                            <thead class="table-dark">
+                                <tr>
+                                    <td class="text-center">Ürün Resmi</td>
+                                    <td class="text-center">Ürün Adı</td>
+                                    <td class="text-center">Ürün Fiyat</td>
+                                    <td class="text-center">Ürün Adet</td>
+                                </tr>
+                            </thead>
+                
+                
+                            <tbody class="urunveri">
+                                <tr>
+                                    <td>
+                                        <div style="width:150px;">
+                                            <!-- @@@@@@@@@@@ Resimin idsi -->
+                                            <img id="yemek" src="Yatakodasi/yatak4.jpg" alt="" width="100%">
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        <p>İSTİKBAL YEMEK TAKIMI</p>
+                                    </td>
+                                    <td>
+                                        <div style="width: 150px;" class="text-center">
+                                                                                                                        <!-- Paranın idsi -->
+                                            <input class="w-50 text-center text-success" type="text" value="11.599 TL" id="money23" disabled="disabled">
+                                        </div>
+                                    </td>
+                
+                                    <td >
+                                     <div class="tdtr">
+                                                                                                <!-- Para eksitme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt23();">
+                                            <span class="eksi">-</span>
+                                        </button>
+                                                                                                    <!-- Parayi aktarma id -->
+                                            <input class="w-25 text-center" type="text" value="1" id="text_atama23" disabled="disabled">
+                                        
+    
+                                                                                                        <!-- Parayı Yükseltme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir23();">
+                                            <span class="arti">+</span>
+                                        </button>
+                                     </div>
+                                    </td>
+                                
+                                </tr>
+                            
+                
+                            </tbody>
+                           </table>
+                           <div class="d-flex justify-content-center mt-5">
+                             <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+    
+                           </div>
+                    </div>
+    
+    
+                        <!-- Sipariş tablo id -->
+                        <div id="siparistable23" class="col-md-auto siparistablo gizle">
+    
+                        <div class="card mr-5">
+                            <h1>Sipariş Özeti</h1>
+                            <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                                <!-- Para id 2 -->
+                            <h6> Fiyatı : <span id="spanid23">11.599 TL </span> </h6>
+    
+    
+    
+                            <div class="card-footer">
+                                <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                                 <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                             </div>
+                        </div>
+    
+                        
+                    </div>
+                    </div>
+        
+        
+        
+            </div>
+
+
+            <!-- Y.O Tablo 4 -->
+            <div class="container-fluid">
+
+                <div class="row ml-auto">
+    
+                    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                    <div id="tableurun24" class="col-md-auto gizle ">
+                        <table class="table table-bordered tablom w-100">
+                            <thead class="table-dark">
+                                <tr>
+                                    <td class="text-center">Ürün Resmi</td>
+                                    <td class="text-center">Ürün Adı</td>
+                                    <td class="text-center">Ürün Fiyat</td>
+                                    <td class="text-center">Ürün Adet</td>
+                                </tr>
+                            </thead>
+                
+                
+                            <tbody class="urunveri">
+                                <tr>
+                                    <td>
+                                        <div style="width:150px;">
+                                            <!-- @@@@@@@@@@@ Resimin idsi -->
+                                            <img id="yemek" src="Yatakodasi/yatak5.jpg" alt="" width="100%">
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        <p>İSTİKBAL YEMEK TAKIMI</p>
+                                    </td>
+                                    <td>
+                                        <div style="width: 150px;" class="text-center">
+                                                                                                                        <!-- Paranın idsi -->
+                                            <input class="w-50 text-center text-success" type="text" value="11.599 TL" id="money24" disabled="disabled">
+                                        </div>
+                                    </td>
+                
+                                    <td >
+                                     <div class="tdtr">
+                                                                                                <!-- Para eksitme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt24();">
+                                            <span class="eksi">-</span>
+                                        </button>
+                                                                                                    <!-- Parayi aktarma id -->
+                                            <input class="w-25 text-center" type="text" value="1" id="text_atama24" disabled="disabled">
+                                        
+    
+                                                                                                        <!-- Parayı Yükseltme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir24();">
+                                            <span class="arti">+</span>
+                                        </button>
+                                     </div>
+                                    </td>
+                                
+                                </tr>
+                            
+                
+                            </tbody>
+                           </table>
+                           <div class="d-flex justify-content-center mt-5">
+                             <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+    
+                           </div>
+                    </div>
+    
+    
+                        <!-- Sipariş tablo id -->
+                        <div id="siparistable24" class="col-md-auto siparistablo gizle">
+    
+                        <div class="card mr-5">
+                            <h1>Sipariş Özeti</h1>
+                            <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                                <!-- Para id 2 -->
+                            <h6> Fiyatı : <span id="spanid24">11.599 TL </span> </h6>
+    
+    
+    
+                            <div class="card-footer">
+                                <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                                 <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                             </div>
+                        </div>
+    
+                        
+                    </div>
+                    </div>
+        
+        
+        
+            </div>
+
+
+            <!-- Y.O Tablo 5 -->
+            <div class="container-fluid">
+
+                <div class="row ml-auto">
+    
+                    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                    <div id="tableurun25" class="col-md-auto gizle ">
+                        <table class="table table-bordered tablom w-100">
+                            <thead class="table-dark">
+                                <tr>
+                                    <td class="text-center">Ürün Resmi</td>
+                                    <td class="text-center">Ürün Adı</td>
+                                    <td class="text-center">Ürün Fiyat</td>
+                                    <td class="text-center">Ürün Adet</td>
+                                </tr>
+                            </thead>
+                
+                
+                            <tbody class="urunveri">
+                                <tr>
+                                    <td>
+                                        <div style="width:150px;">
+                                            <!-- @@@@@@@@@@@ Resimin idsi -->
+                                            <img id="yemek" src="Yatakodasi/yatak6.jpg" alt="" width="100%">
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        <p>İSTİKBAL YEMEK TAKIMI</p>
+                                    </td>
+                                    <td>
+                                        <div style="width: 150px;" class="text-center">
+                                                                                                                        <!-- Paranın idsi -->
+                                            <input class="w-50 text-center text-success" type="text" value="11.599 TL" id="money25" disabled="disabled">
+                                        </div>
+                                    </td>
+                
+                                    <td >
+                                     <div class="tdtr">
+                                                                                                <!-- Para eksitme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt25();">
+                                            <span class="eksi">-</span>
+                                        </button>
+                                                                                                    <!-- Parayi aktarma id -->
+                                            <input class="w-25 text-center" type="text" value="1" id="text_atama25" disabled="disabled">
+                                        
+    
+                                                                                                        <!-- Parayı Yükseltme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir25();">
+                                            <span class="arti">+</span>
+                                        </button>
+                                     </div>
+                                    </td>
+                                
+                                </tr>
+                            
+                
+                            </tbody>
+                           </table>
+                           <div class="d-flex justify-content-center mt-5">
+                             <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+    
+                           </div>
+                    </div>
+    
+    
+                        <!-- Sipariş tablo id -->
+                        <div id="siparistable25" class="col-md-auto siparistablo gizle">
+    
+                        <div class="card mr-5">
+                            <h1>Sipariş Özeti</h1>
+                            <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                                <!-- Para id 2 -->
+                            <h6> Fiyatı : <span id="spanid25">11.599 TL </span> </h6>
+    
+    
+    
+                            <div class="card-footer">
+                                <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                                 <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                             </div>
+                        </div>
+    
+                        
+                    </div>
+                    </div>
+        
+        
+        
+            </div>
+
+
+            <!-- Y.O Tablo 6 -->
+            <div class="container-fluid">
+
+                <div class="row ml-auto">
+    
+                    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                    <div id="tableurun26" class="col-md-auto gizle ">
+                        <table class="table table-bordered tablom w-100">
+                            <thead class="table-dark">
+                                <tr>
+                                    <td class="text-center">Ürün Resmi</td>
+                                    <td class="text-center">Ürün Adı</td>
+                                    <td class="text-center">Ürün Fiyat</td>
+                                    <td class="text-center">Ürün Adet</td>
+                                </tr>
+                            </thead>
+                
+                
+                            <tbody class="urunveri">
+                                <tr>
+                                    <td>
+                                        <div style="width:150px;">
+                                            <!-- @@@@@@@@@@@ Resimin idsi -->
+                                            <img id="yemek" src="Yatakodasi/yatak7.jpg" alt="" width="100%">
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        <p>İSTİKBAL YEMEK TAKIMI</p>
+                                    </td>
+                                    <td>
+                                        <div style="width: 150px;" class="text-center">
+                                                                                                                        <!-- Paranın idsi -->
+                                            <input class="w-50 text-center text-success" type="text" value="11.599 TL" id="money26" disabled="disabled">
+                                        </div>
+                                    </td>
+                
+                                    <td >
+                                     <div class="tdtr">
+                                                                                                <!-- Para eksitme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt26();">
+                                            <span class="eksi">-</span>
+                                        </button>
+                                                                                                    <!-- Parayi aktarma id -->
+                                            <input class="w-25 text-center" type="text" value="1" id="text_atama26" disabled="disabled">
+                                        
+    
+                                                                                                        <!-- Parayı Yükseltme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir26();">
+                                            <span class="arti">+</span>
+                                        </button>
+                                     </div>
+                                    </td>
+                                
+                                </tr>
+                            
+                
+                            </tbody>
+                           </table>
+                           <div class="d-flex justify-content-center mt-5">
+                             <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+    
+                           </div>
+                    </div>
+    
+    
+                        <!-- Sipariş tablo id -->
+                        <div id="siparistable26" class="col-md-auto siparistablo gizle">
+    
+                        <div class="card mr-5">
+                            <h1>Sipariş Özeti</h1>
+                            <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                                <!-- Para id 2 -->
+                            <h6> Fiyatı : <span id="spanid26">11.599 TL </span> </h6>
+    
+    
+    
+                            <div class="card-footer">
+                                <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                                 <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                             </div>
+                        </div>
+    
+                        
+                    </div>
+                    </div>
+        
+        
+        
+            </div>
+
+              <!-- Y.O Tablo 7-->
+              <div class="container-fluid">
+
+                <div class="row ml-auto">
+    
+                    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                    <div id="tableurun27" class="col-md-auto gizle ">
+                        <table class="table table-bordered tablom w-100">
+                            <thead class="table-dark">
+                                <tr>
+                                    <td class="text-center">Ürün Resmi</td>
+                                    <td class="text-center">Ürün Adı</td>
+                                    <td class="text-center">Ürün Fiyat</td>
+                                    <td class="text-center">Ürün Adet</td>
+                                </tr>
+                            </thead>
+                
+                
+                            <tbody class="urunveri">
+                                <tr>
+                                    <td>
+                                        <div style="width:150px;">
+                                            <!-- @@@@@@@@@@@ Resimin idsi -->
+                                            <img id="yemek" src="Yatakodasi/yatak8.jpg" alt="" width="100%">
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        <p>İSTİKBAL YEMEK TAKIMI</p>
+                                    </td>
+                                    <td>
+                                        <div style="width: 150px;" class="text-center">
+                                                                                                                        <!-- Paranın idsi -->
+                                            <input class="w-50 text-center text-success" type="text" value="11.599 TL" id="money27" disabled="disabled">
+                                        </div>
+                                    </td>
+                
+                                    <td >
+                                     <div class="tdtr">
+                                                                                                <!-- Para eksitme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt27();">
+                                            <span class="eksi">-</span>
+                                        </button>
+                                                                                                    <!-- Parayi aktarma id -->
+                                            <input class="w-25 text-center" type="text" value="1" id="text_atama27" disabled="disabled">
+                                        
+    
+                                                                                                        <!-- Parayı Yükseltme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir27();">
+                                            <span class="arti">+</span>
+                                        </button>
+                                     </div>
+                                    </td>
+                                
+                                </tr>
+                            
+                
+                            </tbody>
+                           </table>
+                           <div class="d-flex justify-content-center mt-5">
+                             <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+    
+                           </div>
+                    </div>
+    
+    
+                        <!-- Sipariş tablo id -->
+                        <div id="siparistable27" class="col-md-auto siparistablo gizle">
+    
+                        <div class="card mr-5">
+                            <h1>Sipariş Özeti</h1>
+                            <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                                <!-- Para id 2 -->
+                            <h6> Fiyatı : <span id="spanid27">11.599 TL </span> </h6>
+    
+    
+    
+                            <div class="card-footer">
+                                <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                                 <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                             </div>
+                        </div>
+    
+                        
+                    </div>
+                    </div>
+        
+        
+        
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- Oturma Odasi -->
+
+              <!-- O . O 1-->
+  <div class="container-fluid">
+
+    <div class="row ml-auto">
+
+        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+        <div id="tableurun30" class="col-md-auto gizle ">
+            <table class="table table-bordered tablom w-100">
+                <thead class="table-dark">
+                    <tr>
+                        <td class="text-center">Ürün Resmi</td>
+                        <td class="text-center">Ürün Adı</td>
+                        <td class="text-center">Ürün Fiyat</td>
+                        <td class="text-center">Ürün Adet</td>
+                    </tr>
+                </thead>
+    
+    
+                <tbody class="urunveri">
+                    <tr>
+                        <td>
+                            <div style="width:150px;">
+                                <!-- @@@@@@@@@@@ Resimin idsi -->
+                                <img id="yemek" src="oturmaodasi/oturma5.gif" alt="" width="100%">
+                            </div>
+                        </td>
+                        <td scope="col">
+                            <p>İSTİKBAL YEMEK TAKIMI</p>
+                        </td>
+                        <td>
+                            <div style="width: 150px;" class="text-center">
+                                                                                                            <!-- Paranın idsi -->
+                                <input class="w-50 text-center text-success" type="text" value="6.599 TL" id="money30" disabled="disabled">
+                            </div>
+                        </td>
+    
+                        <td >
+                         <div class="tdtr">
+                                                                                    <!-- Para eksitme id -->
+                            <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt30();">
+                                <span class="eksi">-</span>
+                            </button>
+                                                                                        <!-- Parayi aktarma id -->
+                                <input class="w-25 text-center" type="text" value="1" id="text_atama30" disabled="disabled">
+                            
+
+                                                                                            <!-- Parayı Yükseltme id -->
+                            <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir30();">
+                                <span class="arti">+</span>
+                            </button>
+                         </div>
+                        </td>
+                    
+                    </tr>
+                
+    
+                </tbody>
+               </table>
+               <div class="d-flex justify-content-center mt-5">
+                 <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+
+               </div>
+        </div>
+
+
+            <!-- Sipariş tablo id -->
+            <div id="siparistable30" class="col-md-auto siparistablo gizle">
+
+            <div class="card mr-5">
+                <h1>Sipariş Özeti</h1>
+                <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                    <!-- Para id 2 -->
+                <h6> Fiyatı : <span id="spanid30">6.599 TL </span> </h6>
+
+
+
+                <div class="card-footer">
+                    <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                     <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                 </div>
+            </div>
+
+            
+        </div>
+        </div>
+
+
+
+</div>
+
+
+
+              <!-- O . O 2-->
+              <div class="container-fluid">
+
+                <div class="row ml-auto">
+            
+                    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                    <div id="tableurun31" class="col-md-auto gizle ">
+                        <table class="table table-bordered tablom w-100">
+                            <thead class="table-dark">
+                                <tr>
+                                    <td class="text-center">Ürün Resmi</td>
+                                    <td class="text-center">Ürün Adı</td>
+                                    <td class="text-center">Ürün Fiyat</td>
+                                    <td class="text-center">Ürün Adet</td>
+                                </tr>
+                            </thead>
+                
+                
+                            <tbody class="urunveri">
+                                <tr>
+                                    <td>
+                                        <div style="width:150px;">
+                                            <!-- @@@@@@@@@@@ Resimin idsi -->
+                                            <img id="yemek" src="oturmaodasi/oturma.jpg" alt="" width="100%">
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        <p>İSTİKBAL YEMEK TAKIMI</p>
+                                    </td>
+                                    <td>
+                                        <div style="width: 150px;" class="text-center">
+                                                                                                                        <!-- Paranın idsi -->
+                                            <input class="w-50 text-center text-success" type="text" value="6.599 TL" id="money31" disabled="disabled">
+                                        </div>
+                                    </td>
+                
+                                    <td >
+                                     <div class="tdtr">
+                                                                                                <!-- Para eksitme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt31();">
+                                            <span class="eksi">-</span>
+                                        </button>
+                                                                                                    <!-- Parayi aktarma id -->
+                                            <input class="w-25 text-center" type="text" value="1" id="text_atama31" disabled="disabled">
+                                        
+            
+                                                                                                        <!-- Parayı Yükseltme id -->
+                                        <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir31();">
+                                            <span class="arti">+</span>
+                                        </button>
+                                     </div>
+                                    </td>
+                                
+                                </tr>
+                            
+                
+                            </tbody>
+                           </table>
+                           <div class="d-flex justify-content-center mt-5">
+                             <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+            
+                           </div>
+                    </div>
+            
+            
+                        <!-- Sipariş tablo id -->
+                        <div id="siparistable31" class="col-md-auto siparistablo gizle">
+            
+                        <div class="card mr-5">
+                            <h1>Sipariş Özeti</h1>
+                            <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                                <!-- Para id 2 -->
+                            <h6> Fiyatı : <span id="spanid31">6.599 TL </span> </h6>
+            
+            
+            
+                            <div class="card-footer">
+                                <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                                 <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                             </div>
+                        </div>
+            
+                        
+                    </div>
+                    </div>
+                      
+            
+                </div>
+
+
+
+                              <!-- O . O 3-->
+  <div class="container-fluid">
+
+    <div class="row ml-auto">
+
+        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+        <div id="tableurun32" class="col-md-auto gizle ">
+            <table class="table table-bordered tablom w-100">
+                <thead class="table-dark">
+                    <tr>
+                        <td class="text-center">Ürün Resmi</td>
+                        <td class="text-center">Ürün Adı</td>
+                        <td class="text-center">Ürün Fiyat</td>
+                        <td class="text-center">Ürün Adet</td>
+                    </tr>
+                </thead>
+    
+    
+                <tbody class="urunveri">
+                    <tr>
+                        <td>
+                            <div style="width:150px;">
+                                <!-- @@@@@@@@@@@ Resimin idsi -->
+                                <img id="yemek" src="oturmaodasi/oturma2.jpg" alt="" width="100%">
+                            </div>
+                        </td>
+                        <td scope="col">
+                            <p>İSTİKBAL YEMEK TAKIMI</p>
+                        </td>
+                        <td>
+                            <div style="width: 150px;" class="text-center">
+                                                                                                            <!-- Paranın idsi -->
+                                <input class="w-50 text-center text-success" type="text" value="6.599 TL" id="money32" disabled="disabled">
+                            </div>
+                        </td>
+    
+                        <td >
+                         <div class="tdtr">
+                                                                                    <!-- Para eksitme id -->
+                            <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt32();">
+                                <span class="eksi">-</span>
+                            </button>
+                                                                                        <!-- Parayi aktarma id -->
+                                <input class="w-25 text-center" type="text" value="1" id="text_atama32" disabled="disabled">
+                            
+
+                                                                                            <!-- Parayı Yükseltme id -->
+                            <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir32();">
+                                <span class="arti">+</span>
+                            </button>
+                         </div>
+                        </td>
+                    
+                    </tr>
+                
+    
+                </tbody>
+               </table>
+               <div class="d-flex justify-content-center mt-5">
+                 <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+
+               </div>
+        </div>
+
+
+            <!-- Sipariş tablo id -->
+            <div id="siparistable32" class="col-md-auto siparistablo gizle">
+
+            <div class="card mr-5">
+                <h1>Sipariş Özeti</h1>
+                <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                    <!-- Para id 2 -->
+                <h6> Fiyatı : <span id="spanid32">6.599 TL </span> </h6>
+
+
+
+                <div class="card-footer">
+                    <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                     <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                 </div>
+            </div>
+
+            
+        </div>
+        </div>
+
+
+
+    </div>
+
+    
+
+
+                  <!-- O . O 4-->
+  <div class="container-fluid">
+
+    <div class="row ml-auto">
+
+        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+        <div id="tableurun33" class="col-md-auto gizle ">
+            <table class="table table-bordered tablom w-100">
+                <thead class="table-dark">
+                    <tr>
+                        <td class="text-center">Ürün Resmi</td>
+                        <td class="text-center">Ürün Adı</td>
+                        <td class="text-center">Ürün Fiyat</td>
+                        <td class="text-center">Ürün Adet</td>
+                    </tr>
+                </thead>
+    
+    
+                <tbody class="urunveri">
+                    <tr>
+                        <td>
+                            <div style="width:150px;">
+                                <!-- @@@@@@@@@@@ Resimin idsi -->
+                                <img id="yemek" src="oturmaodasi/oturma3.jpg" alt="" width="100%">
+                            </div>
+                        </td>
+                        <td scope="col">
+                            <p>İSTİKBAL YEMEK TAKIMI</p>
+                        </td>
+                        <td>
+                            <div style="width: 150px;" class="text-center">
+                                                                                                            <!-- Paranın idsi -->
+                                <input class="w-50 text-center text-success" type="text" value="6.599 TL" id="money33" disabled="disabled">
+                            </div>
+                        </td>
+    
+                        <td >
+                         <div class="tdtr">
+                                                                                    <!-- Para eksitme id -->
+                            <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt33();">
+                                <span class="eksi">-</span>
+                            </button>
+                                                                                        <!-- Parayi aktarma id -->
+                                <input class="w-25 text-center" type="text" value="1" id="text_atama33" disabled="disabled">
+                            
+
+                                                                                            <!-- Parayı Yükseltme id -->
+                            <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir33();">
+                                <span class="arti">+</span>
+                            </button>
+                         </div>
+                        </td>
+                    
+                    </tr>
+                
+    
+                </tbody>
+               </table>
+               <div class="d-flex justify-content-center mt-5">
+                 <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+
+               </div>
+        </div>
+
+
+            <!-- Sipariş tablo id -->
+            <div id="siparistable33" class="col-md-auto siparistablo gizle">
+
+            <div class="card mr-5">
+                <h1>Sipariş Özeti</h1>
+                <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                    <!-- Para id 2 -->
+                <h6> Fiyatı : <span id="spanid33">6.599 TL </span> </h6>
+
+
+
+                <div class="card-footer">
+                    <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                     <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                 </div>
+            </div>
+
+            
+        </div>
+        </div>
+
+
+
+    </div>
+
+                  <!-- O . O 4-->
+                  <div class="container-fluid">
+
+                    <div class="row ml-auto">
+                
+                        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+                        <div id="tableurun33" class="col-md-auto gizle ">
+                            <table class="table table-bordered tablom w-100">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <td class="text-center">Ürün Resmi</td>
+                                        <td class="text-center">Ürün Adı</td>
+                                        <td class="text-center">Ürün Fiyat</td>
+                                        <td class="text-center">Ürün Adet</td>
+                                    </tr>
+                                </thead>
+                    
+                    
+                                <tbody class="urunveri">
+                                    <tr>
+                                        <td>
+                                            <div style="width:150px;">
+                                                <!-- @@@@@@@@@@@ Resimin idsi -->
+                                                <img id="yemek" src="oturmaodasi/oturma3.jpg" alt="" width="100%">
+                                            </div>
+                                        </td>
+                                        <td scope="col">
+                                            <p>İSTİKBAL YEMEK TAKIMI</p>
+                                        </td>
+                                        <td>
+                                            <div style="width: 150px;" class="text-center">
+                                                                                                                            <!-- Paranın idsi -->
+                                                <input class="w-50 text-center text-success" type="text" value="6.599 TL" id="money33" disabled="disabled">
+                                            </div>
+                                        </td>
+                    
+                                        <td >
+                                         <div class="tdtr">
+                                                                                                    <!-- Para eksitme id -->
+                                            <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt33();">
+                                                <span class="eksi">-</span>
+                                            </button>
+                                                                                                        <!-- Parayi aktarma id -->
+                                                <input class="w-25 text-center" type="text" value="1" id="text_atama33" disabled="disabled">
+                                            
+                
+                                                                                                            <!-- Parayı Yükseltme id -->
+                                            <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir33();">
+                                                <span class="arti">+</span>
+                                            </button>
+                                         </div>
+                                        </td>
+                                    
+                                    </tr>
+                                
+                    
+                                </tbody>
+                               </table>
+                               <div class="d-flex justify-content-center mt-5">
+                                 <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+                
+                               </div>
+                        </div>
+                
+                
+                            <!-- Sipariş tablo id -->
+                            <div id="siparistable33" class="col-md-auto siparistablo gizle">
+                
+                            <div class="card mr-5">
+                                <h1>Sipariş Özeti</h1>
+                                <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                                    <!-- Para id 2 -->
+                                <h6> Fiyatı : <span id="spanid33">6.599 TL </span> </h6>
+                
+                
+                
+                                <div class="card-footer">
+                                    <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                                     <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                                 </div>
+                            </div>
+                
+                            
+                        </div>
+                        </div>
+                
+                
+                
+                    </div>
+
+
+
+      <!-- O . O 5-->
+  <div class="container-fluid">
+
+    <div class="row ml-auto">
+
+        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+        <div id="tableurun34" class="col-md-auto gizle ">
+            <table class="table table-bordered tablom w-100">
+                <thead class="table-dark">
+                    <tr>
+                        <td class="text-center">Ürün Resmi</td>
+                        <td class="text-center">Ürün Adı</td>
+                        <td class="text-center">Ürün Fiyat</td>
+                        <td class="text-center">Ürün Adet</td>
+                    </tr>
+                </thead>
+    
+    
+                <tbody class="urunveri">
+                    <tr>
+                        <td>
+                            <div style="width:150px;">
+                                <!-- @@@@@@@@@@@ Resimin idsi -->
+                                <img id="yemek" src="oturmaodasi/oturma4.jpg" alt="" width="100%">
+                            </div>
+                        </td>
+                        <td scope="col">
+                            <p>İSTİKBAL YEMEK TAKIMI</p>
+                        </td>
+                        <td>
+                            <div style="width: 150px;" class="text-center">
+                                                                                                            <!-- Paranın idsi -->
+                                <input class="w-50 text-center text-success" type="text" value="6.599 TL" id="money34" disabled="disabled">
+                            </div>
+                        </td>
+    
+                        <td >
+                         <div class="tdtr">
+                                                                                    <!-- Para eksitme id -->
+                            <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt34();">
+                                <span class="eksi">-</span>
+                            </button>
+                                                                                        <!-- Parayi aktarma id -->
+                                <input class="w-25 text-center" type="text" value="1" id="text_atama34" disabled="disabled">
+                            
+
+                                                                                            <!-- Parayı Yükseltme id -->
+                            <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir34();">
+                                <span class="arti">+</span>
+                            </button>
+                         </div>
+                        </td>
+                    
+                    </tr>
+                
+    
+                </tbody>
+               </table>
+               <div class="d-flex justify-content-center mt-5">
+                 <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+
+               </div>
+        </div>
+
+
+            <!-- Sipariş tablo id -->
+            <div id="siparistable34" class="col-md-auto siparistablo gizle">
+
+            <div class="card mr-5">
+                <h1>Sipariş Özeti</h1>
+                <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                    <!-- Para id 2 -->
+                <h6> Fiyatı : <span id="spanid34">6.599 TL </span> </h6>
+
+
+
+                <div class="card-footer">
+                    <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                     <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                 </div>
+            </div>
+
+            
+        </div>
+        </div>
+
+
+
+    </div>
+
+
+                      <!-- O . O 6-->
+  <div class="container-fluid">
+
+    <div class="row ml-auto">
+
+        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+        <div id="tableurun35" class="col-md-auto gizle ">
+            <table class="table table-bordered tablom w-100">
+                <thead class="table-dark">
+                    <tr>
+                        <td class="text-center">Ürün Resmi</td>
+                        <td class="text-center">Ürün Adı</td>
+                        <td class="text-center">Ürün Fiyat</td>
+                        <td class="text-center">Ürün Adet</td>
+                    </tr>
+                </thead>
+    
+    
+                <tbody class="urunveri">
+                    <tr>
+                        <td>
+                            <div style="width:150px;">
+                                <!-- @@@@@@@@@@@ Resimin idsi -->
+                                <img id="yemek" src="oturmaodasi/oturma5.jpg" alt="" width="100%">
+                            </div>
+                        </td>
+                        <td scope="col">
+                            <p>İSTİKBAL YEMEK TAKIMI</p>
+                        </td>
+                        <td>
+                            <div style="width: 150px;" class="text-center">
+                                                                                                            <!-- Paranın idsi -->
+                                <input class="w-50 text-center text-success" type="text" value="6.599 TL" id="money35" disabled="disabled">
+                            </div>
+                        </td>
+    
+                        <td >
+                         <div class="tdtr">
+                                                                                    <!-- Para eksitme id -->
+                            <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt35();">
+                                <span class="eksi">-</span>
+                            </button>
+                                                                                        <!-- Parayi aktarma id -->
+                                <input class="w-25 text-center" type="text" value="1" id="text_atama35" disabled="disabled">
+                            
+
+                                                                                            <!-- Parayı Yükseltme id -->
+                            <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir35();">
+                                <span class="arti">+</span>
+                            </button>
+                         </div>
+                        </td>
+                    
+                    </tr>
+                
+    
+                </tbody>
+               </table>
+               <div class="d-flex justify-content-center mt-5">
+                 <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+
+               </div>
+        </div>
+
+
+            <!-- Sipariş tablo id -->
+            <div id="siparistable35" class="col-md-auto siparistablo gizle">
+
+            <div class="card mr-5">
+                <h1>Sipariş Özeti</h1>
+                <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                    <!-- Para id 2 -->
+                <h6> Fiyatı : <span id="spanid35">6.599 TL </span> </h6>
+
+
+
+                <div class="card-footer">
+                    <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                     <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                 </div>
+            </div>
+
+            
+        </div>
+        </div>
+
+
+
+    </div>
+
+
+                      <!-- O . O 1-->
+  <div class="container-fluid">
+
+    <div class="row ml-auto">
+
+        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ürün Tablo idsi -->
+        <div id="tableurun36" class="col-md-auto gizle ">
+            <table class="table table-bordered tablom w-100">
+                <thead class="table-dark">
+                    <tr>
+                        <td class="text-center">Ürün Resmi</td>
+                        <td class="text-center">Ürün Adı</td>
+                        <td class="text-center">Ürün Fiyat</td>
+                        <td class="text-center">Ürün Adet</td>
+                    </tr>
+                </thead>
+    
+    
+                <tbody class="urunveri">
+                    <tr>
+                        <td>
+                            <div style="width:150px;">
+                                <!-- @@@@@@@@@@@ Resimin idsi -->
+                                <img id="yemek" src="oturmaodasi/oturma6.jpg" alt="" width="100%">
+                            </div>
+                        </td>
+                        <td scope="col">
+                            <p>İSTİKBAL YEMEK TAKIMI</p>
+                        </td>
+                        <td>
+                            <div style="width: 150px;" class="text-center">
+                                                                                                            <!-- Paranın idsi -->
+                                <input class="w-50 text-center text-success" type="text" value="6.599 TL" id="money36" disabled="disabled">
+                            </div>
+                        </td>
+    
+                        <td >
+                         <div class="tdtr">
+                                                                                    <!-- Para eksitme id -->
+                            <button class="btn btn btn-outline-primary btn-sm" id="adetcikar" onclick="azalt36();">
+                                <span class="eksi">-</span>
+                            </button>
+                                                                                        <!-- Parayi aktarma id -->
+                                <input class="w-25 text-center" type="text" value="1" id="text_atama36" disabled="disabled">
+                            
+
+                                                                                            <!-- Parayı Yükseltme id -->
+                            <button class="btn btn btn-outline-primary btn-sm" id="adetyukselt" onclick="artir36();">
+                                <span class="arti">+</span>
+                            </button>
+                         </div>
+                        </td>
+                    
+                    </tr>
+                
+    
+                </tbody>
+               </table>
+               <div class="d-flex justify-content-center mt-5">
+                 <input class="btn btn-danger" id="delete_urun" type="button" value="Ürünü Değiştir" onclick="deleteurun();">
+
+               </div>
+        </div>
+
+
+            <!-- Sipariş tablo id -->
+            <div id="siparistable36" class="col-md-auto siparistablo gizle">
+
+            <div class="card mr-5">
+                <h1>Sipariş Özeti</h1>
+                <h6>Ürün Adı : İSTİKBAL YEMEK TAKIMI </h6>
+                                    <!-- Para id 2 -->
+                <h6> Fiyatı : <span id="spanid36">6.599 TL </span> </h6>
+
+
+
+                <div class="card-footer">
+                    <textarea type="text" class="form-control" cols="30" rows="3" id="adress" placeholder="Gönderilecek Adres"></textarea>
+                     <input type="button" value="ONAYLA" class="btn btn-success mt-5 btn-block p-3" onclick="siparis();">
+                 </div>
+            </div>
+
+            
+        </div>
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+</body>
+
+</html>
